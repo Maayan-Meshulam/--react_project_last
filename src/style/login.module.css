@@ -1,0 +1,75 @@
+.loginForm {
+    width: 300px;
+    margin: auto;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-sizing: content-box
+}
+
+.refreshBtn,
+.cancelBtn {
+    border: none;
+    background-color: gray;
+    border: 1px solid #8d8b8b;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+    font-family: 'Inter', serif;
+    font-size: 14px;
+}
+
+
+.submitButton {
+    background-color: green;
+    border: 1px solid #004400;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    font-family: 'Inter', serif;
+    font-size: 14px;
+    transition: .5s;
+}
+
+#isStayLoginDiv {
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+#isStayLogin {
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+    color: black;
+}
+
+.isRegiser{
+    margin: 10px 0;
+    padding-left: 10px 
+}
+
+:global(.darkMode) #isStayLoginDiv,
+:global(.darkMode) .isRegiser{
+    color: white
+  }
+  
+
+@media screen and (max-width: 600px) {
+
+    .loginForm {
+        width: 220px;
+        padding: 0px;
+        gap: 10px;
+        font-size: 14px;
+    }
+
+    .refreshBtn,
+    .cancelBtn,
+    .submitbutton {
+        padding: 7px;
+        font-size: 12px;
+    }
+
+}

@@ -1,0 +1,368 @@
+#userInfoContainer {
+    display: flex;
+    width: 800px;
+    padding: 50px;
+    box-sizing: border-box;
+    align-items: center;
+    margin: auto;
+}
+
+.inlineUserInfoConntainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+    font-size: 18px;
+    word-spacing: 5px;
+}
+
+.registerForm {
+    width: fit-content;
+    margin: auto;
+    gap: 10px;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(6, 100px);
+    box-sizing: content-box
+}
+
+#userInfoContainer img {
+    width: 100%;
+    height: 100%;
+}
+
+.miniTitleUserInfo {
+    font-weight: bold;
+}
+
+.updateUserButton {
+    border: none;
+    background-color: green;
+    border: #005d00;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+    font-family: 'Inter', serif;
+    font-size: 14px;
+    width: 150px;
+    cursor: pointer;
+    box-shadow: 0 0 5px 2px green;
+}
+
+.updateUserButton:hover {
+    transform: scale(0.95);
+    transition: .5s;
+}
+
+
+.refreshBtn,
+.cancelBtn {
+    border: none;
+    background-color: gray;
+    border: 1px solid #8d8b8b;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+    font-family: 'Inter', serif;
+    font-size: 14px;
+}
+
+
+.submitButton {
+    background-color: green;
+    border: 1px solid #004400;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    font-family: 'Inter', serif;
+    font-size: 14px;
+    transition: .5s;
+}
+
+.firstNameContainer {
+    grid-column: 1 / span 2;
+}
+
+.middleNameContainer {
+    grid-column: 3 / span 2;
+}
+
+.lastNameContainer {
+    grid-column: 5 / span 2;
+}
+
+.phoneContainer {
+    grid-column: 1 / span 3;
+}
+
+.emailContainer {
+    grid-column: 4 / span 3;
+}
+
+.passwordContainer {
+    grid-column: 1 / span 3;
+}
+
+.PasswordVerificationContainer {
+    grid-column: 4 / span 3;
+}
+
+.imgAltContainer {
+    grid-column: 4 / span 3;
+}
+
+.imgUrlContainer {
+    grid-column: 1 / span 6;
+}
+
+.stateContainer {
+    grid-column: 1 / span 3;
+}
+
+.countryContainer {
+    grid-column: 4 / span 3;
+}
+
+.cityContainer {
+    grid-column: 1 / span 2;
+}
+
+.streetContainer {
+    grid-column: 3 / span 2;
+}
+
+.houseNumberContainer {
+    grid-column: 5 / span 1;
+}
+
+.zipContainer {
+    grid-column: 6 / span 1;
+}
+
+#isBusinessDiv {
+    grid-column: 1 / span 6;
+}
+
+.submitButton {
+    grid-column: 1 / span 4;
+}
+
+.cancelBtn {
+    grid-column: 5 / span 1;
+}
+
+.refreshBtn {
+    grid-column: 6 / span 1;
+}
+
+
+
+@media screen and (max-width: 970px) {
+
+    #userInfoContainer {
+        width: 500px;
+    }
+
+    .inlineUserInfoConntainer {
+        font-size: 14px;
+        word-spacing: 5px;
+    }
+
+    .updateUserButton {
+        width: 130px;
+        font-size: 12px;
+    }
+
+
+    .registerForm {
+        padding: 30px;
+        grid-template-columns: repeat(4, 100px);
+    }
+
+    .firstNameContainer {
+        grid-column: 1 / span 2;
+    }
+
+    .middleNameContainer {
+        grid-column: 3 / span 2;
+    }
+
+    .lastNameContainer {
+        grid-column: 1 / span 2;
+    }
+
+    .phoneContainer {
+        grid-column: 3 / span 2;
+    }
+
+    .emailContainer {
+        grid-column: 1 / span 2;
+    }
+
+    .passwordContainer {
+        grid-column: 3 / span 2;
+    }
+
+    .PasswordVerificationContainer {
+        grid-column: 1 / span 2;
+    }
+
+    .imgUrlContainer {
+        grid-column: 1 / span 4;
+    }
+
+    .imgAltContainer {
+        grid-column: 1 / span 2;
+    }
+
+    .stateContainer {
+        grid-column: 3 / span 2;
+    }
+
+    .countryContainer {
+        grid-column: 1 / span 2;
+    }
+
+    .cityContainer {
+        grid-column: 3 / span 2;
+    }
+
+    .streetContainer {
+        grid-column: 1 / span 2;
+    }
+
+    .houseNumberContainer {
+        grid-column: 3 / span 1;
+    }
+
+    .zipContainer {
+        grid-column: 4 / span 1;
+    }
+
+    #isBusinessDiv {
+        grid-column: 1 / span 4;
+    }
+
+    .submitButton {
+        grid-column: 1 / span 2;
+    }
+
+    .cancelBtn {
+        grid-column: 3 / span 1;
+    }
+
+    .refreshBtn {
+        grid-column: 4 / span 1;
+    }
+
+}
+
+
+@media screen and (max-width:600px) {
+
+    #userInfoContainer {
+        width: 280px;
+        padding: 30px;
+    }
+
+    .inlineUserInfoConntainer {
+        font-size: 12px;
+        word-spacing: 5px;
+    }
+
+    .updateUserButton {
+        font-size: 10px;
+    }
+
+
+    .registerForm {
+        width: fit-content;
+        padding: 15px;
+        grid-template-columns: repeat(2, 120px);
+    }
+
+    .refreshBtn,
+    .cancelBtn,
+    .submitbutton {
+        padding: 7px;
+        font-size: 12px;
+    }
+
+    .firstNameContainer {
+        grid-column: 1 / span 2;
+    }
+
+    .middleNameContainer {
+        grid-column: 1 / span 2;
+    }
+
+    .lastNameContainer {
+        grid-column: 1 / span 2;
+    }
+
+    .phoneContainer {
+        grid-column: 1 / span 2;
+    }
+
+    .emailContainer {
+        grid-column: 1 / span 2;
+    }
+
+    .passwordContainer {
+        grid-column: 1 / span 2;
+    }
+
+    .PasswordVerificationContainer {
+        grid-column: 1 / span 2;
+    }
+
+    .imgUrlContainer {
+        grid-column: 1 / span 2;
+    }
+
+    .imgAltContainer {
+        grid-column: 1 / span 2;
+    }
+
+    .stateContainer {
+        grid-column: 1 / span 2;
+    }
+
+    .countryContainer {
+        grid-column: 1 / span 2;
+    }
+
+    .cityContainer {
+        grid-column: 1 / span 2;
+    }
+
+    .streetContainer {
+        grid-column: 1 / span 2;
+    }
+
+    .houseNumberContainer {
+        grid-column: 1 / span 2;
+    }
+
+    .zipContainer {
+        grid-column: 1 / span 2;
+    }
+
+    #isBusinessDiv {
+        grid-column: 1 / span 2;
+    }
+
+    .submitButton {
+        grid-column: 1 / span 2;
+    }
+
+    .cancelBtn {
+        grid-column: 1 / span 1;
+    }
+
+    .refreshBtn {
+        grid-column: 2 / span 1;
+    }
+
+}

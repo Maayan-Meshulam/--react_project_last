@@ -1,0 +1,80 @@
+#scrollerContainerTable {
+    width: calc(100vw - 5%);
+    height: calc(100vh - 150px);
+    margin: auto;
+    overflow: auto;
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+}
+
+.freezCol {
+    position: sticky;
+    z-index: 10;
+    background-color: white;
+}
+
+#usersTable {
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    padding: 10px;
+    border-collapse: collapse;
+}
+
+#usersTable td {
+    border-bottom: 1px solid black;
+    line-height: 30px;
+    text-align: center;
+    padding: 10px 15px;
+}
+
+#usersTable tr:hover {
+    background-color: #dcdbdb;
+}
+
+#usersTable tr:hover .freezCol {
+    background-color: inherit;
+}
+
+#usersTable th {
+    background-color: #102378;
+    color: white;
+    font-family: 'Open sana', sans-serif;
+    font-weight: 500;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+:global(.darkMode) .freezCol,
+:global(.darkMode) #usersTable {
+    background-color: #000035;
+    color: #c5c3c3;
+}
+
+:global(.darkMode) #usersTable tr:hover {
+    background-color: #010195;
+}
+
+.iconsCards {
+    padding: 2px;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width:600px) {
+
+    #scrollerContainerTable {
+        width: calc(100vw - 15%);
+    }
+
+    #usersTable {
+        font-size: 10px;
+    }
+
+    #usersTable td {
+        padding: 2px;
+    }
+}

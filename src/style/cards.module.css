@@ -1,0 +1,382 @@
+.allCardsContainer {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+
+.card_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+  min-height: 350px;
+  box-shadow: 0 0 10px 1px #242424;
+  border-radius: 20px;
+  transition: 0.5s;
+  position: relative;
+  word-break: break-word;
+  background-color: white;
+}
+
+.card_container:hover {
+  transform: scale(0.98);
+}
+
+:global(.darkMode) .card_container {
+  color: white;
+  background-color: #1e1e1ed2;
+}
+
+.inline_container_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  padding: 15px;
+  cursor: pointer;
+}
+
+
+.img_card {
+  width: 100%;
+  height: 200px;
+  border-radius: 20px;
+}
+
+
+.iconsCardContainer {
+  display: flex;
+  align-items: center;
+  padding: 25px 5px;
+  justify-content: center;
+  gap: 15px;
+  width: 150px;
+}
+
+.iconsCards {
+  padding: 2px;
+  cursor: pointer;
+}
+
+#addCardBtn {
+  background-color: #0000a1;
+  color: white;
+  border: none;
+  padding: 20px 25px;
+  margin: 25px;
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.5s;
+  cursor: pointer;
+  position: fixed;
+  top: 100px;
+  left: 0;
+  z-index: 5;
+}
+
+#addCardBtn:hover {
+  background-color: #0101e8;
+}
+
+.containerOneCard {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 50px;
+  background-color: #ffc6c2;
+  padding: 50px;
+}
+
+.containerOneCard img {
+  width: 350px;
+  border-radius: 50%;
+}
+
+.allCardsContainerInputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardInputs_container {
+  width: fit-content;
+  margin: auto;
+  gap: 10px;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: repeat(6, 100px);
+  box-sizing: content-box
+}
+
+.refreshBtn,
+.cancelBtn {
+  border: none;
+  background-color: gray;
+  border: 1px solid #8d8b8b;
+  border-radius: 5px;
+  color: white;
+  padding: 10px;
+  font-family: 'Inter', serif;
+  font-size: 14px;
+}
+
+
+.submitButton {
+  background-color: green;
+  border: 1px solid #004400;
+  border-radius: 5px;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  font-family: 'Inter', serif;
+  font-size: 14px;
+  transition: .5s;
+}
+
+.titleContainer {
+  grid-column: 1 / span 2;
+}
+
+.subtitleContainer {
+  grid-column: 3 / span 2;
+}
+
+.descriptionContainer {
+  grid-column: 5 / span 2;
+}
+
+.phoneContainer {
+  grid-column: 1 / span 2;
+}
+
+.webContainer {
+  grid-column: 3 / span 2;
+}
+
+.emailContainer {
+  grid-column: 5 / span 2;
+}
+
+.imgUrlContainer {
+  grid-column: 1 / span 3;
+}
+
+.imgAltContainer {
+  grid-column: 4 / span 3;
+}
+
+.stateContainer {
+  grid-column: 1 / span 3;
+}
+
+.countryContainer {
+  grid-column: 4 / span 3;
+}
+
+.cityContainer {
+  grid-column: 1 / span 2;
+}
+
+.streetContainer {
+  grid-column: 3 / span 2;
+}
+
+.numberHouseContainer {
+  grid-column: 5 / span 1;
+}
+
+.zipContainer {
+  grid-column: 6 / span 1;
+}
+
+.submitButton {
+  grid-column: 1 / span 4;
+}
+
+.cancelBtn {
+  grid-column: 5 / span 1;
+}
+
+.refreshBtn {
+  grid-column: 6 / span 1;
+}
+
+
+
+@media screen and (max-width: 970px) {
+
+  .containerOneCard {
+    flex-direction: column;
+  }
+
+  .cardInputs_container {
+    width: fit-content;
+    padding: 30px;
+    grid-template-columns: repeat(4, 100px);
+  }
+
+  .titleContainer {
+    grid-column: 1 / span 2;
+  }
+
+  .subtitleContainer {
+    grid-column: 3 / span 2;
+  }
+
+  .descriptionContainer {
+    grid-column: 1 / span 2;
+  }
+
+  .phoneContainer {
+    grid-column: 3 / span 2;
+  }
+
+  .webContainer {
+    grid-column: 1 / span 2;
+  }
+
+  .emailContainer {
+    grid-column: 3 / span 2;
+  }
+
+  .imgUrlContainer {
+    grid-column: 1 / span 2;
+  }
+
+  .imgAltContainer {
+    grid-column: 3 / span 2;
+  }
+
+  .stateContainer {
+    grid-column: 1 / span 2;
+  }
+
+  .countryContainer {
+    grid-column: 3 / span 2;
+  }
+
+  .cityContainer {
+    grid-column: 1 / span 1;
+  }
+
+  .streetContainer {
+    grid-column: 2 / span 1;
+  }
+
+  .numberHouseContainer {
+    grid-column: 3/ span 1;
+  }
+
+  .zipContainer {
+    grid-column: 4 / span 1;
+  }
+
+
+  .submitButton {
+    grid-column: 1 / span 4;
+  }
+
+  .cancelBtn {
+    grid-column: 1 / span 2;
+  }
+
+  .refreshBtn {
+    grid-column: 3 / span 2;
+  }
+
+}
+
+
+@media screen and (max-width: 600px) {
+
+  .containerOneCard {
+    padding: 20px;
+  }
+
+  .containerOneCard img {
+    width: 200px;
+    border-radius: 50%;
+  }
+
+  .containerOneCard iframe {
+    width: 200px;
+  }
+
+  .cardInputs_container {
+    width: fit-content;
+    padding: 15px;
+    grid-template-columns: repeat(2, 120px);
+  }
+
+  .titleContainer {
+    grid-column: 1 / span 2;
+  }
+
+  .subtitleContainer {
+    grid-column: 1 / span 2;
+  }
+
+  .descriptionContainer {
+    grid-column: 1 / span 2;
+  }
+
+  .phoneContainer {
+    grid-column: 1 / span 2;
+  }
+
+  .webContainer {
+    grid-column: 1 / span 2;
+  }
+
+  .emailContainer {
+    grid-column: 1 / span 2;
+  }
+
+  .imgUrlContainer {
+    grid-column: 1 / span 2;
+  }
+
+  .imgAltContainer {
+    grid-column: 1 / span 2;
+  }
+
+  .stateContainer {
+    grid-column: 1 / span 2;
+  }
+
+  .countryContainer {
+    grid-column: 1 / span 2;
+  }
+
+  .cityContainer {
+    grid-column: 1 / span 2;
+  }
+
+  .streetContainer {
+    grid-column: 1 / span 2;
+  }
+
+  .houseNumberContainer {
+    grid-column: 1 / span 2;
+  }
+
+  .zipContainer {
+    grid-column: 1 / span 2;
+  }
+
+  .submitButton {
+    grid-column: 1 / span 2;
+  }
+
+  .cancelBtn {
+    grid-column: 1 / span 1;
+  }
+
+  .refreshBtn {
+    grid-column: 2 / span 1;
+  }
+
+}
