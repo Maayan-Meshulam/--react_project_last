@@ -74,7 +74,7 @@ const Login: FunctionComponent<LoginProps> = () => {
             formik.resetForm();
         }
     })
-    
+
 
     return (<>
         <div className="aboveAllContainerGeneral">
@@ -118,7 +118,7 @@ const Login: FunctionComponent<LoginProps> = () => {
                         <label htmlFor="floatingPassword">Password</label>
                     </div>
 
-                    {formik.touched.password && formik.errors.password && (<p className={styles.errorP}>{formik.errors.password}</p>)}
+                    {formik.touched.password && formik.errors.password && (<p className="errorP">{formik.errors.password}</p>)}
 
                     <p className={styles.isRegiser}>not register yet ? <Link to="/register" style={{ color: "blue" }}>click here</Link> to register</p>
 

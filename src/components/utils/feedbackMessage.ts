@@ -8,7 +8,8 @@ export function createdNewCardMes(){
         text:" you created a new card !",
         icon: "success",
         showConfirmButton: false,
-        timer: 1500
+        timer: 1500,
+        width:"270px"
     });
 }
 
@@ -19,6 +20,7 @@ export function updateCardMes(){
         icon: "success",
         showConfirmButton: false,
         timer: 1500,
+        width:"270px"
     });
 }
 
@@ -28,7 +30,8 @@ export function successMesGenery(title:string, text:string){
         text: text,
         icon: "success",
         showConfirmButton: false,
-        timer: 1500
+        timer: 1500,
+        width:"270px"
     });
 }
 
@@ -39,6 +42,7 @@ export function errorMesGenery(title:string = "", text:string){
         text: text,
         icon: "error",
         showCloseButton: true,
+        width:"270px"
    });
 }
 
@@ -51,6 +55,7 @@ export function alreadyLogdeinMes(){
         showCancelButton: true,
         confirmButtonText: "yes, logIn",
         cancelButtonText: "no",
+        width:"270px"
     })
 }
 
@@ -63,6 +68,7 @@ export function DeltedCardMes(){
         showCancelButton: true,
         confirmButtonText: "yes, delete it",
         cancelButtonText: "no, cancel",
+        width:"270px"
     })
 }
 
@@ -84,5 +90,6 @@ export function DeltedUserMes(user:UserInterface){
         showCancelButton: true,
         confirmButtonText: "yes, delete it",
         cancelButtonText: "no, cancel",
+        width:"270px"
     })
 }

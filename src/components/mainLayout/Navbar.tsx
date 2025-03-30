@@ -30,7 +30,7 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
     const isBusiness: boolean = userBaseInfo?.isBusiness ?? false
     const isAdmin: boolean = userBaseInfo?.isAdmin ?? false;
 
-    //בכל שינוי סטטו התחרות או יציאה נשנה בהתאם את השם
+    //בכל שינוי סטטוס התחברות או יציאה נשנה בהתאם את השם
     useEffect(() => {
         setName(importNameInStorage())
     }, [userBaseInfo])
@@ -44,19 +44,19 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
 
         {isConnect && <NavLink className={styles.navlink} to="/fav-cards">FAV CARDS</NavLink>}
 
-        {((isConnect && isBusiness) || (isConnect && isAdmin)) && <NavLink className="navlink" to="/my-cards">MY CARDS</NavLink>}
+        {((isConnect && isBusiness) || (isConnect && isAdmin)) && <NavLink className={styles.navlink} to="/my-cards">MY CARDS</NavLink>}
         {isConnect && isAdmin && <NavLink className={styles.navlink} to="/sandbox">SANDBOX</NavLink>}
 
         {isConnect ? <>
             <span
                 id={styles.exit}
                 onClick={() => {
+                    navigate("/");
                     setUserBaseInfo(undefined);
                     import('../../services/tokenServices').then(module => module.removeTokenFromStorage());
-                    localStorage.getItem("Gust") ? saveNameInStorage(true, "Gust") : saveNameInStorage(false, "Gust");
-                    successMesGenery("user exit", `goodbay 
+                    localStorage.getItem("userName") ? localStorage.removeItem("userName") : sessionStorage.removeItem("userName");
+                    successMesGenery("user exit", `נתראה בקרוב  
                              ${name}`);
-                    navigate("/");
                 }}>
                 exit </span>
             <NavLink className={styles.navlink} to="/user-info">userInfo</NavLink>
@@ -69,18 +69,6 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
 
     </div>
 
-    {
-        const myLinks =document.getElementById('myLinks');
-        if (myLinks && getComputedStyle(myLinks).display != "none") {   
-
-            document.querySelectorAll('.navlink').forEach((link) => {                
-                link.addEventListener('click', () => {                   
-                    myLinks.style.display = "none"
-                })
-            })
-        }
-    }
-
 
     return (<>
 
@@ -89,10 +77,10 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
             {/* את זה יראו רק במסכים קטנים יותר */}
             <div id={styles.topNav}>
 
-                <label id={styles.burgerNavIcon} htmlFor="burgerNavInput">&#9776;</label>
+                <label id={styles.burgerNavIcon} htmlFor={styles.burgerNavInput}>&#9776;</label>
                 <input type="checkbox" id={styles.burgerNavInput} />
 
-                <div id="sideTopNav">
+                <div id={styles.sideTopNav}>
 
                     <span style={{ position: "relative" }}>
                         <i className={`fa-solid fa-magnifying-glass ${styles.searchIcon}`} />
@@ -166,7 +154,7 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                         onClick={() => {
                             setUserBaseInfo(undefined);
                             import('../../services/tokenServices').then(module => module.removeTokenFromStorage());
-                            localStorage.getItem("userName") ? localStorage.removeItem("userName") :  sessionStorage.removeItem("userName") ;
+                            localStorage.getItem("userName") ? localStorage.removeItem("userName") : sessionStorage.removeItem("userName");
                             successMesGenery("user exit", `נתראה בקרוב  
                              ${name}`);
                             navigate("/");
@@ -186,6 +174,8 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
 
 
     </>);
+    
+    
 }
 
 export default Navbar;
