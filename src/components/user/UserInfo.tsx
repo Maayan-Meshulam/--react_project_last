@@ -19,12 +19,7 @@ const UserInfo: FunctionComponent<UserInfoProps> = () => {
 
     const [user, setUser] = useState<UserInterface>();
 
-    // const { userBaseInfo } = useContext(userConnectInfoContext);
-    // let userId: string = userBaseInfo?._id as string;
-
     useEffect(() => {
-        // if(userBaseInfo)
-        //     userId = id as string;
         getUserById(id as string)
             .then(res => {
                 setUser(res.data);
@@ -37,7 +32,7 @@ const UserInfo: FunctionComponent<UserInfoProps> = () => {
 
 
     return (<>
-        <div className="aboveAllContainerGeneral" style={{ backgroundColor: "#ebeb55", padding: "30px 20px" }}>
+        <div className={`aboveAllContainerGeneral ${styles.userInfoAboveContainer}`}>
 
         {!loading && <div className="laodingContainer"><i className="spinner-border text-secondary laodingIcon" /><span>...laoding</span></div>}
 

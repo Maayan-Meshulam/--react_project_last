@@ -141,7 +141,7 @@ const UpdateUserDetails: FunctionComponent<UpdateUserDetailsProps> = () => {
                         updateUser(id as string, userInfoNormalize)
                                 .then(() => {
                                         successMesGenery("update", "user updates succfully");
-                                        userBaseInfo?.isAdmin ? navigate("/sandbox") : navigate('/user-info')
+                                        navigate(-1);
                                 })
                                 .catch(err => {
                                         errorMesGenery("", err.response.err)

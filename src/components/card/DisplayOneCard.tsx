@@ -49,8 +49,6 @@ const DisplayOneCard: FunctionComponent<DisplayOneCardProps> = () => {
         {card ? (
             <div className={`aboveAllContainerGeneral ${styles.containerOneCard}`}>
 
-                <div style={{ width: "fit-content", margin: "auto", display: "flex", flexDirection: "column", alignItems: "center" }}>
-
                     <div className={styles.inline_container_card}>
                         <h1 className="main-title-card">{card.title}</h1>
                         <h3 className="sub-title3">{card.subtitle}</h3>
@@ -77,6 +75,7 @@ const DisplayOneCard: FunctionComponent<DisplayOneCardProps> = () => {
                                                         .then(() => {
                                                             successMesGenery("", "card delted succfully");
                                                             setFlagRemoveCard(!flagRemoveCard); // נגרום למשיכה מחדש של כל הקלפים
+                                                            navigate(-1);
                                                         })
                                                         .catch(err => {
                                                             errorMesGenery("", err.response.data);
@@ -100,10 +99,6 @@ const DisplayOneCard: FunctionComponent<DisplayOneCardProps> = () => {
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3354.122309000826!2d34.96055048481763!3d32.789016080968366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151dbbc23cc99ad7%3A0xbbd34b02f05a858a!2sGoogle%2C%20Haifa!5e0!3m2!1siw!2sil!4v1743310015924!5m2!1siw!2sil" width="400" height="300" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
             </div>
 
         ) : (
