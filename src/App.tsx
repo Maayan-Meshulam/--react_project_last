@@ -74,7 +74,6 @@ function App() {
           <Route path='/card-info/:id' element={<><Navbar/> <DisplayOneCard/> <Footer/></>}/>
           <Route path='/update-user/:id' element={<><Navbar/> <UpdateUserDetails/> <Footer/></>}/>
           <Route path='/delete-user/:id' element={<><Navbar/> <UpdateUserDetails/> <Footer/></>}/>
-          <Route path='/user-info' element={<><Navbar/> <UserInfo/> <Footer/></>}/>
           <Route path='/user-info/:id' element={<><Navbar/> <UserInfo/> <Footer/></>}/>
           <Route path='/sandbox' element={<><Navbar/> <Sandbox/> <Footer/></>}/>
           <Route path='*' element={<><Navbar/> <ErrorPage/> <Footer/></>}/>

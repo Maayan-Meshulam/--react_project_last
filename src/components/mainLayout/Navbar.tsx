@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import userConnectInfoContext, { userInfoConnectContextInterface } from "../../context/UserContext";
 import { webModeContext, WebModeInterface } from "../../context/DarkLightMode";
 import { successMesGenery } from "../utils/feedbackMessage";
-import { importNameInStorage, saveNameInStorage } from "../../services/userServices";
+import { importNameInStorage } from "../../services/userServices";
 import { searchContext, searchInterface } from "../../context/SearchContext";
 import styles from '../../style/navbar_footer.module.css';
 
@@ -59,7 +59,7 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                              ${name}`);
                 }}>
                 exit </span>
-            <NavLink className={styles.navlink} to="/user-info">userInfo</NavLink>
+            <NavLink className={styles.navlink} to={`/user-info/${userBaseInfo?._id}`}>userInfo</NavLink>
         </> :
             <>
                 <NavLink className={styles.navlink} to="/register">register</NavLink>
@@ -72,7 +72,7 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
 
     return (<>
 
-        <nav id={styles.navbarContainer}>
+        <nav className={styles.navbarContainer}>
 
             {/* את זה יראו רק במסכים קטנים יותר */}
             <div id={styles.topNav}>
@@ -160,7 +160,7 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                             navigate("/");
                         }}>
                         exit </span>
-                    <NavLink className={styles.navlink} to="/user-info">userInfo</NavLink>
+                    <NavLink className={styles.navlink} to={`/user-info/${userBaseInfo?._id}`}>userInfo</NavLink>
                 </> :
                     <>
                         <NavLink className={styles.navlink} to="/register">register</NavLink>

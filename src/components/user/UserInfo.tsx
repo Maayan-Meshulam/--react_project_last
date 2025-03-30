@@ -19,13 +19,13 @@ const UserInfo: FunctionComponent<UserInfoProps> = () => {
 
     const [user, setUser] = useState<UserInterface>();
 
-    const { userBaseInfo } = useContext(userConnectInfoContext);
-    let userId: string = userBaseInfo?._id as string
+    // const { userBaseInfo } = useContext(userConnectInfoContext);
+    // let userId: string = userBaseInfo?._id as string;
 
     useEffect(() => {
-        if(userBaseInfo?.isAdmin)
-            userId = id as string;
-        getUserById(userId as string)
+        // if(userBaseInfo)
+        //     userId = id as string;
+        getUserById(id as string)
             .then(res => {
                 setUser(res.data);
                 setLoading(true)
@@ -33,7 +33,7 @@ const UserInfo: FunctionComponent<UserInfoProps> = () => {
             .catch(err => {
                 errorMesGenery("", err.response.data)
             })
-    }, [userId])
+    }, [id])
 
 
     return (<>
@@ -65,7 +65,7 @@ const UserInfo: FunctionComponent<UserInfoProps> = () => {
                     <button
                         className={styles.updateUserButton}
                         onClick={() => {
-                            navigate(`/update-user/${userId}`)
+                            navigate(`/update-user/${id}`)
                         }}>update details user
                     </button>
 

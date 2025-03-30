@@ -2,7 +2,7 @@
     display: none;
 }
 
-#navbarContainer,
+.navbarContainer,
 #footerContainer {
     display: flex;
     justify-content: space-between;
@@ -12,11 +12,11 @@
     padding: 20px 30px;
     box-sizing: border-box;
 }
-
-#navbarContainer {
+.navbarContainer {
     position: sticky;
     top: 0;
-    z-index: 50;
+    z-index: 100;
+    background-color: #333;
 }
 
 #footerContainer {
@@ -174,7 +174,7 @@
         display: none;
     }
 
-    #navbarContainer {
+    .navbarContainer {
         align-items: start;
         padding: 0;
     }

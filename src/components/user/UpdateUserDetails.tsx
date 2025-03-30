@@ -112,7 +112,8 @@ const UpdateUserDetails: FunctionComponent<UpdateUserDetailsProps> = () => {
                                 setLoading(true)
                         })
                         .catch(err => {
-                                errorMesGenery("", err.response.data);
+                                //כששמים מזהה לא נכון בכתובת זה עושה שגיאה של להקומפוננטה ולא מגיע לפה
+                                errorMesGenery(undefined, err.response.data);
                         })
         }, [])
 
@@ -134,6 +135,7 @@ const UpdateUserDetails: FunctionComponent<UpdateUserDetailsProps> = () => {
                 validationSchema: yup.object(formikValidationSchema),
                 enableReinitialize: true,
                 onSubmit: (values: normalizeUpdateUserInterface) => {
+
                         const userInfoNormalize: updateUserInterface = normalizeUserUpdate(values);
 
                         updateUser(id as string, userInfoNormalize)
@@ -151,8 +153,8 @@ const UpdateUserDetails: FunctionComponent<UpdateUserDetailsProps> = () => {
 
         return (<>
                 <div id="aboveAllContainerGeneral">
-                        
-                {!loading && <div className="laodingContainer"><i className="spinner-border text-secondary laodingIcon" /><span>...laoding</span></div>}
+
+                        {!loading && <div className="laodingContainer"><i className="spinner-border text-secondary laodingIcon" /><span>...laoding</span></div>}
 
                         <h1 className="main-title">Update user</h1>
                         <form className={styles.registerForm} onSubmit={formik.handleSubmit}>
@@ -188,15 +190,15 @@ const UpdateUserDetails: FunctionComponent<UpdateUserDetailsProps> = () => {
                                 />
                                 <InputsRegister
                                         formik={formik}
-                                        type="text"
-                                        placeholder="state"
-                                        name="state"
-                                />
-                                <InputsRegister
-                                        formik={formik}
                                         type="url"
                                         placeholder="img url"
                                         name="imgUrl"
+                                />
+                                <InputsRegister
+                                        formik={formik}
+                                        type="text"
+                                        placeholder="state"
+                                        name="state"
                                 />
                                 <InputsRegister
                                         formik={formik}
@@ -229,13 +231,17 @@ const UpdateUserDetails: FunctionComponent<UpdateUserDetailsProps> = () => {
                                         name="zip"
                                 />
 
-                                <button className={styles.submitButton} type="submit">Submit</button>
+                                <button
+                                        className={styles.submitButton}
+                                        type="submit"
+                                        disabled={!formik.isValid || !formik.dirty}
+                                >Submit</button>
 
                                 <button
                                         className={styles.cancelBtn}
                                         type="button"
                                         onClick={() => {
-                                                navigate("/user-info");
+                                                navigate(-1);
                                         }}>
                                         Cancel
                                 </button>
@@ -243,7 +249,6 @@ const UpdateUserDetails: FunctionComponent<UpdateUserDetailsProps> = () => {
                                 <button
                                         className={styles.refreshBtn}
                                         type="button"
-                                        disabled={!formik.isValid || !formik.dirty}
                                         onClick={() => {
                                                 formik.resetForm();
                                         }}>

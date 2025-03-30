@@ -125,8 +125,8 @@ const Sandbox: FunctionComponent<SandboxProps> = () => {
                                                             if (res.isConfirmed)
                                                                 deleteUser(user._id as string)
                                                                     .then(() => {
-                                                                        successMesGenery("", "user deleted succfully");
                                                                         setArrUsersFlag(!arrUsersFlag);
+                                                                        successMesGenery("", "user deleted succfully");
                                                                     })
                                                                     .catch(err => {
                                                                         errorMesGenery(err.response.data, '');
