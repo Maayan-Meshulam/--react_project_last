@@ -4,6 +4,7 @@ import userConnectInfoContext from "../../context/UserContext";
 import { getUserById } from "../../services/userServices";
 import { UserInterface } from "../../interfaces/User";
 import styles from '../../style/userInfo.module.css';
+import { errorMesGenery } from "../utils/feedbackMessage";
 
 interface UserInfoProps {
 
@@ -30,7 +31,7 @@ const UserInfo: FunctionComponent<UserInfoProps> = () => {
                 setLoading(true)
             })
             .catch(err => {
-                console.log(err);
+                errorMesGenery("", err.response.data)
             })
     }, [userId])
 

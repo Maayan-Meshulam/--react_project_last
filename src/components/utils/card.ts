@@ -2,8 +2,6 @@ import { CardInterface, normalizeCardInterface } from "../../interfaces/Card";
 
 //normalize card => form to server
 export function normalizeCard(normalizeCard:normalizeCardInterface):CardInterface{
-
-    console.log(normalizeCard);
     
     //object detructring
     let {title,subtitle, description, phone, 

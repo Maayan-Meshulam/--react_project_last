@@ -41,7 +41,6 @@ const Home: FunctionComponent<HomeProps> = () => {
                 setLoading(true);
             })
             .catch(err => {
-                console.log(err);
                 import("./utils/feedbackMessage").then(module => module.errorMesGenery("", err.message));
             })
     }, [flagRemoveCard, userBaseInfo])
@@ -96,7 +95,6 @@ const Home: FunctionComponent<HomeProps> = () => {
                                 <i className={`fa-solid fa-trash  ${styles.iconsCards} trash`}
                                     onClick={() => {
                                         DeltedCardMes().then(res => {
-                                            console.log(res);
                                             if (res.isConfirmed) {
                                                 removeCard(card._id as string)
                                                     .then(() => {
@@ -104,7 +102,6 @@ const Home: FunctionComponent<HomeProps> = () => {
                                                         setFlagRemoveCard(!flagRemoveCard); // נגרום למשיכה מחדש של כל הקלפים
                                                     })
                                                     .catch(err => {
-                                                        console.log(err);
                                                         errorMesGenery("", err.response.data);
                                                     })
                                             }

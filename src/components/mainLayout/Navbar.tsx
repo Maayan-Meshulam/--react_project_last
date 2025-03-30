@@ -18,23 +18,17 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
     const { userBaseInfo, setUserBaseInfo } = useContext<userInfoConnectContextInterface>(userConnectInfoContext);
 
     //search
-    const { exppToSearch, setSearchExpp } = useContext<searchInterface>(searchContext);
+    const { setSearchExpp } = useContext<searchInterface>(searchContext);
     const [name, setName] = useState<string>('');
-    console.log(exppToSearch + "  search word");
 
     //dark-light mode
     const { mode, setMode } = useContext<WebModeInterface>(webModeContext)
-    console.log(mode);
 
     const navigate = useNavigate();
 
     const isConnect: boolean = Boolean(userBaseInfo); // if undefined=>false
     const isBusiness: boolean = userBaseInfo?.isBusiness ?? false
     const isAdmin: boolean = userBaseInfo?.isAdmin ?? false;
-
-    console.log(isConnect + " connect");
-    console.log(isBusiness + "is bussiness");
-    console.log(isAdmin + " is admin");
 
     //בכל שינוי סטטו התחרות או יציאה נשנה בהתאם את השם
     useEffect(() => {
@@ -59,7 +53,6 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                 onClick={() => {
                     setUserBaseInfo(undefined);
                     import('../../services/tokenServices').then(module => module.removeTokenFromStorage());
-                    console.log(2);
                     localStorage.getItem("Gust") ? saveNameInStorage(true, "Gust") : saveNameInStorage(false, "Gust");
                     successMesGenery("user exit", `goodbay 
                              ${name}`);
@@ -78,15 +71,10 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
 
     {
         const myLinks =document.getElementById('myLinks');
-        if (myLinks && getComputedStyle(myLinks).display != "none") {
-            console.log(7);
-            
-            document.querySelectorAll('.navlink').forEach((link) => {
-                console.log(9);
-                
-                link.addEventListener('click', () => {
-                    console.log(3);
-                    
+        if (myLinks && getComputedStyle(myLinks).display != "none") {   
+
+            document.querySelectorAll('.navlink').forEach((link) => {                
+                link.addEventListener('click', () => {                   
                     myLinks.style.display = "none"
                 })
             })

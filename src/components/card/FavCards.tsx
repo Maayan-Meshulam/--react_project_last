@@ -17,10 +17,8 @@ const FavCards: FunctionComponent<FavCardsProps> = () => {
 
     //user base info
     const { userBaseInfo } = useContext(userConnectInfoContext);
-    console.log(userBaseInfo);
 
     if (!userBaseInfo) {
-        console.log(89898989);
         return <ErrorPage />
     }
     else {
@@ -28,7 +26,6 @@ const FavCards: FunctionComponent<FavCardsProps> = () => {
         const isAdmin = userBaseInfo?.isAdmin ?? false;
 
         let userId = userBaseInfo?._id as string;
-        console.log(userId);
 
         const navigate = useNavigate();
         const [loading, setLoading] = useState(false);
@@ -56,24 +53,19 @@ const FavCards: FunctionComponent<FavCardsProps> = () => {
                     setLoading(true);
                 })
                 .catch(err => {
-                    console.log(err);
                     errorMesGenery("", err.response.data);
                 })
         }, [flagRemoveCard])
 
         //נאתחל את מערך הלייקים
         useEffect(() => {
-            console.log(arrCards.length + " 222");
             if (arrCards && arrCards.length == 0) return;
-            console.log(userId);
             setFavCards(arrCards.filter((card: CardInterface) => card.likes?.includes(userId)));
-            console.log(arrCards);
         }, [arrCards, userBaseInfo])
 
 
         //זמני - למחוק
         useEffect(() => {
-            console.log(favCards);
             const searchArr = favCards.filter((card: CardInterface) => {
                 return card.title.includes(exppToSearch);
             })
@@ -127,7 +119,6 @@ const FavCards: FunctionComponent<FavCardsProps> = () => {
                                     <i className={`fa-solid fa-trash ${styles.iconsCards} trash`}
                                         onClick={() => {
                                             DeltedCardMes().then(res => {
-                                                console.log(res);
                                                 if (res.isConfirmed) {
                                                     removeCard(card._id as string)
                                                         .then(() => {
@@ -135,7 +126,6 @@ const FavCards: FunctionComponent<FavCardsProps> = () => {
                                                             setFlagRemoveCard(!flagRemoveCard); // נגרום למשיכה מחדש של כל הקלפים
                                                         })
                                                         .catch(err => {
-                                                            console.log(err);
                                                             errorMesGenery("", err.response.data);
                                                         })
                                                 }

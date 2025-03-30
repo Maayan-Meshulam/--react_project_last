@@ -119,11 +119,8 @@ const Register: FunctionComponent<RegisterProps> = () => {
                 },
                 validationSchema: yup.object(formikValidationSchema),
                 onSubmit: (values: normalizeUserInterface) => {
-                        console.log("heloooooo");
 
                         const normalizeUserInfo = normalizeUser(values);
-                        console.log(normalizeUserInfo);
-
                         registerUser(normalizeUserInfo)
                                 .then(() => {
                                         successMesGenery("Register", "you created a new user, plesae login");
@@ -131,7 +128,6 @@ const Register: FunctionComponent<RegisterProps> = () => {
                                         formik.resetForm();
                                 })
                                 .catch(err => {
-                                        console.log(err);
                                         if (err.response.data = "User already registered") {
                                                 alreadyLogdeinMes()
                                                         .then(res => {
@@ -141,7 +137,7 @@ const Register: FunctionComponent<RegisterProps> = () => {
                                                                         navigate("/register")
                                                         })
                                                         .catch(err => {
-                                                                console.log(err);
+                                                                errorMesGenery("", err.response.data)
                                                         })
                                         }
                                         else
@@ -151,7 +147,6 @@ const Register: FunctionComponent<RegisterProps> = () => {
                 }
         })
 
-        console.log(formik);
 
         return (<>
 

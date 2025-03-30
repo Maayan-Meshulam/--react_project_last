@@ -5,8 +5,6 @@ import { TokenInterface } from "../interfaces/tokenInterface"
 
 //save token in storage
 export function saveTokenInStorage(typeStorage:boolean, token:string){
-    console.log(typeStorage); 
-    console.log(token);
     if(Storage != undefined){
         typeStorage ? localStorage.setItem("token", token) : sessionStorage.setItem("token", token);
     }
@@ -43,7 +41,6 @@ export function getTokenFromStorage(){
 //enconding token => get user information from the token
 export function encodingToken(token:string){
         let payloaodToken = jwtDecode(token)
-        console.log(payloaodToken);
         return payloaodToken as TokenInterface;
 }
 

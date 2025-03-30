@@ -49,16 +49,12 @@ const Login: FunctionComponent<LoginProps> = () => {
         onSubmit: (values: loginUserInterface) => {
             loginUser(values)
                 .then(res => {
-                    console.log(res.data + " --token");
                     saveTokenInStorage(stayConnect, res.data); //שמירת הטוקן בזיכרון
-                    console.log(encodingToken(res.data));
                     const tokenPayload: TokenInterface = encodingToken(res.data);
-                    console.log(tokenPayload);
 
                     //נשמור את שם המשתמש המחובר
                     getUserById(tokenPayload._id)
                         .then(res => {
-                            console.log(res.data.name);
                             const nameAsString = `${res.data.name.first} ${res.data.name.last}`;
                             saveNameInStorage(stayConnect, nameAsString);
                             setUserBaseInfo(tokenPayload); //שמירת פרטי המשתמש הבסיסיים => מזהה, עסקי ומנהל                        
@@ -72,15 +68,13 @@ const Login: FunctionComponent<LoginProps> = () => {
 
                 })
                 .catch(err => {
-                    console.log(err);
                     setErrorMes(err.response.data);
                 })
 
             formik.resetForm();
         }
     })
-    console.log(formik);
-
+    
 
     return (<>
         <div className="aboveAllContainerGeneral">

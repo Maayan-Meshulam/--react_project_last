@@ -7,20 +7,16 @@ const apiUsers = import.meta.env.VITE_api_users;
 
 //login exist uer
 export function loginUser(userInfo: loginUserInterface) {
-    console.log(userInfo);
     return axios.post(`${apiUsers}/login`, userInfo)
 }
 
 //register new user
 export function registerUser(userInfo: UserInterface) {
-    console.log(userInfo);
     return axios.post(apiUsers, userInfo);
 }
 
 //get user by id
 export function getUserById(id: string) {
-    console.log(id + " id");
-
     return axios.get(`${apiUsers}/${id}`, {
         headers: { "x-auth-token": getTokenFromStorage() }
     })
@@ -35,10 +31,6 @@ export function getAllUsers() {
 
 //update user
 export function updateUser(id: string, newUserInfo: updateUserInterface) {
-    console.log(newUserInfo);
-
-    console.log(getTokenFromStorage() + " token");
-    console.log("abc");
 
     return axios.put(`${apiUsers}/${id}`, newUserInfo,
         {

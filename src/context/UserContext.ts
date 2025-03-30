@@ -11,7 +11,6 @@ export const userConnectInfoContext = createContext<userInfoConnectContextInterf
     userBaseInfo: undefined,
     setUserBaseInfo:()=>{}
 });
-console.log(userConnectInfoContext);
 
 export default userConnectInfoContext;
 

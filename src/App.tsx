@@ -43,11 +43,9 @@ function App() {
 
   //user base info
   const [userBaseInfo, setUserBaseInfo] = useState<TokenInterface | undefined>();
-  console.log(userBaseInfo + " baseINfo");  
 
   useEffect(()=>{
     const token = getTokenFromStorage();
-    console.log(token + "token");      
     (token && setUserBaseInfo(encodingToken(token)))
   }, [])
 

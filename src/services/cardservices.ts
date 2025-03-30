@@ -19,13 +19,11 @@ export function createCard(cardInfo:CardInterface){
 
 //get card by id
 export function getCardById(id:string){
-    console.log(`${apiCards}/${id}` + " ---api card by id");
     return axios.get(`${apiCards}/${id}`);
 }
 
 //update card
 export function editCard(InfoCard:CardInterface, id:string){
-    console.log(InfoCard);
     return axios.put(`${apiCards}/${id}`, InfoCard,
         {
             headers: {"x-auth-token": getTokenFromStorage()}
@@ -45,8 +43,6 @@ export function removeCard(id:string){
 //like / unlike card
 //{likes: userId} - זה סתם מחייב לשלוח משהו במבנה הזה , זה עובד לא משנה מה שולחים שם ?
 export function updateLikes(cardId:string){
-
-    console.log(getTokenFromStorage());
     
     return axios.patch(`${apiCards}/${cardId}`,{},
         {

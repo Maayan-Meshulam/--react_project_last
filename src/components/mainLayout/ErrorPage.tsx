@@ -1,4 +1,4 @@
-import { Attributes, FunctionComponent } from "react";
+import { FunctionComponent } from "react";
 import { useNavigate } from "react-router-dom";
 
 interface ErrorPageProps {
@@ -26,10 +26,6 @@ const ErrorPage: FunctionComponent<ErrorPageProps> = () => {
     }
 
 
-    const btnHover = {
-        backgroundColor: "#0101e8"
-    }
-
     const navigate = useNavigate();
 
     return (<>
@@ -47,10 +43,7 @@ const ErrorPage: FunctionComponent<ErrorPageProps> = () => {
                     onClick={() => {
                         navigate(-1);
                     }}
-                    style={btn} onMouseOver={(e: any) => {
-                        console.log(e);
-
-                    }}> אחורה
+                    style={btn} > אחורה
                 </button>
             </div>
         </div>

@@ -18,11 +18,8 @@ const MyCards: FunctionComponent<MyCardsProps> = () => {
 
     //user base info
     const { userBaseInfo } = useContext<userInfoConnectContextInterface>(userConnectInfoContext);
-    console.log(userBaseInfo);
-
 
     if (!userBaseInfo || (!userBaseInfo?.isBusiness && !userBaseInfo.isAdmin)){
-        console.log(89898989);
         return <ErrorPage />
     }        
     else {
@@ -41,21 +38,12 @@ const MyCards: FunctionComponent<MyCardsProps> = () => {
 
         const navigate = useNavigate();
 
-
-        //זמני
-        useEffect(() => {
-            console.log(arrMyCards);
-
-        }, [arrMyCards])
-
-
         useEffect(() => {
             getAllCards()
                 .then((res) => {
                     setArrCards(res.data);
                     setLoading(true)
                 }).catch(err => {
-                    console.log(err);
                     errorMesGenery("", err.response.data);
                 })
 
@@ -76,8 +64,6 @@ const MyCards: FunctionComponent<MyCardsProps> = () => {
             //נסנן את המערך לתצוגה
             const searchArr = arrMyCards.filter((card: CardInterface) => {
                 const expressionToSearch = exppToSearch.trimStart();
-                console.log(card.title, expressionToSearch);
-
                 return card.title.includes(expressionToSearch);
             })
 
@@ -135,7 +121,6 @@ const MyCards: FunctionComponent<MyCardsProps> = () => {
                                 <i className={`fa-solid fa-trash ${styles.iconsCards} trash`}
                                     onClick={() => {
                                         DeltedCardMes().then(res => {
-                                            console.log(res);
                                             if (res.isConfirmed) {
                                                 removeCard(card._id as string)
                                                     .then(() => {
@@ -143,7 +128,6 @@ const MyCards: FunctionComponent<MyCardsProps> = () => {
                                                         setFlagRemoveCard(!flagRemoveCard); // נגרום למשיכה מחדש של כל הקלפים
                                                     })
                                                     .catch(err => {
-                                                        console.log(err);
                                                         errorMesGenery("", err.response.data);
                                                     })
                                             }

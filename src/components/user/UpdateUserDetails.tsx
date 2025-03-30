@@ -24,8 +24,6 @@ const UpdateUserDetails: FunctionComponent<UpdateUserDetailsProps> = () => {
         //     let id = useRef<string | undefined>(undefined);
 
         let { id } = useParams<{ id: string }>();
-        console.log(id);
-
 
         const formikValidationSchema = {
                 firstName: yup.
@@ -114,9 +112,7 @@ const UpdateUserDetails: FunctionComponent<UpdateUserDetailsProps> = () => {
                                 setLoading(true)
                         })
                         .catch(err => {
-                                console.log(err);
-                                //כששמים מזהה לא נכון בכתובת זה עושה שגיאה של להקומפוננטה ולא מגיע לפה
-                                errorMesGenery(undefined, err.response.data);
+                                errorMesGenery("", err.response.data);
                         })
         }, [])
 
@@ -138,12 +134,7 @@ const UpdateUserDetails: FunctionComponent<UpdateUserDetailsProps> = () => {
                 validationSchema: yup.object(formikValidationSchema),
                 enableReinitialize: true,
                 onSubmit: (values: normalizeUpdateUserInterface) => {
-                        console.log(user + " user to send");
-                        console.log(JSON.stringify(user) + " user info to send");
-
                         const userInfoNormalize: updateUserInterface = normalizeUserUpdate(values);
-                        console.log(userInfoNormalize);
-                        console.log(values);
 
                         updateUser(id as string, userInfoNormalize)
                                 .then(() => {
@@ -151,14 +142,12 @@ const UpdateUserDetails: FunctionComponent<UpdateUserDetailsProps> = () => {
                                         userBaseInfo?.isAdmin ? navigate("/sandbox") : navigate('/user-info')
                                 })
                                 .catch(err => {
-                                        console.log(err);
                                         errorMesGenery("", err.response.err)
                                 })
 
                 }
         })
 
-        console.log(formik);
 
         return (<>
                 <div id="aboveAllContainerGeneral">

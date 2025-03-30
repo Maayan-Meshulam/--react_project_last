@@ -1,10 +1,8 @@
 import { normalizeUpdateUserInterface, normalizeUserInterface, updateUserInterface, UserInterface } from "../../interfaces/User";
-import { loginUser } from "../../services/userServices";
 
 
 //פונקציה שממירה את האובייקט שאנחנו מקבלים לאובייקט במבנה שצריך לשלוח
 export function normalizeUser(normalizeUser: normalizeUserInterface) : UserInterface{
-    console.log(normalizeUser);
 
     // object distructering
     let {firstName, middleName, lastName, 
@@ -39,7 +37,6 @@ export function normalizeUser(normalizeUser: normalizeUserInterface) : UserInter
 
 //פונקציה שממירה את האובייקט שאנחנו מקבלים לאובייקט במבנה שצריך לשלוח - בעדכון
 export function normalizeUserUpdate(normalizeUser: normalizeUpdateUserInterface) : updateUserInterface{
-    console.log(normalizeUser);
 
     // object distructering
     let {firstName, middleName, lastName, phone, imgUrl, imgAlt,
@@ -72,7 +69,6 @@ export function normalizeUserUpdate(normalizeUser: normalizeUpdateUserInterface)
 //האם יש בה שימוש ?????????
 //פונקציה שממירה את האובייקט שאנחנו מקבלים לאובייקט במבנה שלנו  
 export function unNormalizeUser(UnNormalizeUser:any){
-    console.log(UnNormalizeUser);
 
     // object distructering
     let {name, phone, email, image, address, isBusiness} = {...UnNormalizeUser};

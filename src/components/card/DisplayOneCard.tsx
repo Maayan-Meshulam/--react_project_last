@@ -14,13 +14,11 @@ interface DisplayOneCardProps {
 const DisplayOneCard: FunctionComponent<DisplayOneCardProps> = () => {
 
     const { id } = useParams();
-    console.log(id);
 
     const [loading, setLoading] = useState(false);
 
     //user base info
     const { userBaseInfo } = useContext(userConnectInfoContext);
-    console.log(userBaseInfo);
     const isconnect = Boolean(userBaseInfo);
     const isAdmin = userBaseInfo?.isAdmin ?? false;
 
@@ -74,7 +72,6 @@ const DisplayOneCard: FunctionComponent<DisplayOneCardProps> = () => {
                                     <i className={`fa-solid fa-trash trash ${styles.iconsCards}`}
                                         onClick={() => {
                                             DeltedCardMes().then(res => {
-                                                console.log(res);
                                                 if (res.isConfirmed) {
                                                     removeCard(card._id as string)
                                                         .then(() => {
@@ -82,7 +79,6 @@ const DisplayOneCard: FunctionComponent<DisplayOneCardProps> = () => {
                                                             setFlagRemoveCard(!flagRemoveCard); // נגרום למשיכה מחדש של כל הקלפים
                                                         })
                                                         .catch(err => {
-                                                            console.log(err);
                                                             errorMesGenery("", err.response.data);
                                                         })
                                                 }
