@@ -48,7 +48,7 @@ const DisplayOneCard: FunctionComponent<DisplayOneCardProps> = () => {
 
         {card ? (
             <div className={`aboveAllContainerGeneral ${styles.containerOneCard}`}>
-
+               
                     <div className={styles.inline_container_card}>
                         <h1 className="main-title-card">{card.title}</h1>
                         <h3 className="sub-title3">{card.subtitle}</h3>

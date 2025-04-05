@@ -47,8 +47,10 @@ const Login: FunctionComponent<LoginProps> = () => {
         },
         validationSchema: yup.object(formikValidationSchema),
         onSubmit: (values: loginUserInterface) => {
+            
             loginUser(values)
                 .then(res => {
+                    console.log(res.data);
                     saveTokenInStorage(stayConnect, res.data); //שמירת הטוקן בזיכרון
                     const tokenPayload: TokenInterface = encodingToken(res.data);
 
