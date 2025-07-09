@@ -69,7 +69,7 @@ const Home: FunctionComponent<HomeProps> = () => {
                 {arrSearch?.length > 0 && arrSearch.map(card => (
                     <div className={styles.card_container} key={card._id}>
                         <div className={styles.inline_container_card} onClick={() => navigate(`/card-info/${card._id}`)}>
-                            <img className={styles.img_card} src={card.image.url} alt={card.image.alt} />
+                            <img loading="lazy" className={styles.img_card} src={card.image.url} alt={card.image.alt} />
 
                             <div className={styles.inline_container_card}>
                                 <h1 className="main-title-card">{card.title}</h1>
